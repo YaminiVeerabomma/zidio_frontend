@@ -1,0 +1,33 @@
+.student-form {
+  max-width: 600px;
+  margin: auto;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.student-form input,
+.student-form select,
+.student-form button {
+  width: 100%;
+  padding: 10px;
+  margin: 0.5rem 0;
+}
+
+.tag-input {
+  margin-bottom: 1rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tags span {
+  background-color: #d1ecf1;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
