@@ -47,12 +47,26 @@ function Register() {
     }
 
     try {
-      const response = await axios.post("http://localhost:8080/api/auth/register", formData);
+      const response = await axios.post(
+        "http://localhost:8889/api/auth/register",
+        formData
+      );
+
       const token = response.data.token;
       localStorage.setItem("token", token);
       navigate("/login");
     } catch (error) {
-      setErrorMsg("Registration failed. Email may already be in use.");
+      console.error("Registration error:", error);
+
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        setErrorMsg(error.response.data.message);
+      } else {
+        setErrorMsg("Registration failed. Please try again.");
+      }
     }
   };
 
@@ -111,7 +125,9 @@ function Register() {
       </form>
 
       <div className="redirect">
-        <p>Already have an account? <Link to="/login">Login here</Link></p>
+        <p>
+          Already have an account? <Link to="/login">Login here</Link>
+        </p>
       </div>
     </div>
   );
