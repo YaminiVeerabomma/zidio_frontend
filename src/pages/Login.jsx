@@ -42,7 +42,7 @@ function Login() {
       const response = await axios.post("http://localhost:8889/api/auth/login", {
         email,
         password,
-      })
+      });
 
       const token = response.data.token;
       localStorage.setItem("token", token);
@@ -85,11 +85,17 @@ function Login() {
           * Minimum 12 characters, with uppercase, lowercase & special character.
         </small>
 
+        <p className="forgot-password">
+          <Link to="/forgot-password">Forgot Password?</Link>
+        </p>
+
         <button type="submit">Login</button>
       </form>
 
       <div className="redirect">
-        <p>Don't have an account? <Link to="/register">Register here</Link></p>
+        <p>
+          Don't have an account? <Link to="/register">Register here</Link>
+        </p>
       </div>
     </div>
   );
